@@ -1,0 +1,144 @@
+INFO 2023-10-21 05:16:47 | main.py root 37 Lets Begin
+INFO 2023-10-21 05:16:47 | dependency.py dispatch 33 GET http://localhost:8001/ 200
+INFO 2023-10-21 05:18:55 | main.py root 37 - Lets Begin
+INFO 2023-10-21 05:18:55 | dependency.py dispatch 33 - GET http://localhost:8001/ 200
+INFO 2023-10-21 05:23:35 | main.py root 37 - Lets Begin
+INFO 2023-10-21 05:24:28 | main.py root 37 - Lets Begin
+INFO 2023-10-21 05:24:28 | dependency.py dispatch 33 - GET http://localhost:8001/ 200 MutableHeaders({'content-length': '57', 'content-type': 'application/json', 'x-process-time': '0.0009179115295410156'})
+INFO 2023-10-21 05:33:49 | dependency.py dispatch 33 - POST http://localhost:8001/users/token 200
+INFO 2023-10-21 05:34:18 | dependency.py dispatch 33 - GET http://localhost:8001/users 200
+INFO 2023-10-21 05:35:30 | crud.py create_user 55 - Added user-some_username to database
+INFO 2023-10-21 05:35:30 | dependency.py dispatch 33 - POST http://localhost:8001/users 201
+WARNING 2023-10-21 05:36:22 | dependency.py dispatch 33 - GET http://localhost:8001/users 200
+WARNING: 2023-10-21 05:37:34 | dependency.py dispatch 33 - GET http://localhost:8001/users 200
+WARNING:	 2023-10-21 05:38:01 | dependency.py dispatch 33 - GET http://localhost:8001/users 200
+CRITICAL:	 2023-10-21 05:38:32 | dependency.py dispatch 33 - GET http://localhost:8001/users 200
+INFO:	 2023-10-21 05:39:08 | dependency.py dispatch 33 - GET http://localhost:8001/users 200
+INFO: 	 2023-10-21 05:41:22 	 dependency.py dispatch line: 33 	 GET http://localhost:8001/users 200
+INFO: 	 2023-10-22 13:26:41 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/docs 200
+INFO: 	 2023-10-22 13:26:42 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/openapi.json 200
+INFO: 	 2023-10-22 13:28:48 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/users/token 200
+INFO: 	 2023-10-22 13:29:45 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/agents 401
+INFO: 	 2023-10-22 13:29:56 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/users/token 200
+WARNING: 	 2023-10-22 13:30:05 	 crud.py get_current_user - line: 125 	 ['fovbe12', '3']
+INFO: 	 2023-10-22 13:30:05 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/agents 200
+WARNING: 	 2023-10-22 13:31:55 	 crud.py get_current_user - line: 125 	 ['fovbe12', '3']
+INFO: 	 2023-10-22 13:31:55 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/transactions 422
+WARNING: 	 2023-10-22 13:42:16 	 crud.py get_current_user - line: 125 	 ['fovbe12', '3']
+INFO: 	 2023-10-22 13:42:21 	 crud.py uploadfile1 - line: 259 	 {"IsSuccessful":true,"ResponseMessage":"Approved by Financial Institution","ResponseCode":"00","Reference":"A2301120537"}
+INFO: 	 2023-10-22 13:42:24 	 crud.py uploadfile1 - line: 259 	 {"IsSuccessful":true,"ResponseMessage":"Approved by Financial Institution","ResponseCode":"00","Reference":"A2301120538"}
+INFO: 	 2023-10-22 13:42:26 	 crud.py uploadfile1 - line: 259 	 {"IsSuccessful":true,"ResponseMessage":"Approved by Financial Institution","ResponseCode":"00","Reference":"A2301120539"}
+INFO: 	 2023-10-22 13:42:28 	 crud.py uploadfile1 - line: 259 	 {"IsSuccessful":true,"ResponseMessage":"Approved by Financial Institution","ResponseCode":"00","Reference":"A2301120540"}
+INFO: 	 2023-10-22 13:42:30 	 crud.py uploadfile1 - line: 259 	 {"IsSuccessful":true,"ResponseMessage":"Approved by Financial Institution","ResponseCode":"00","Reference":"A2301120541"}
+INFO: 	 2023-10-22 13:42:32 	 crud.py uploadfile1 - line: 259 	 {"IsSuccessful":true,"ResponseMessage":"Approved by Financial Institution","ResponseCode":"00","Reference":"A2301120542"}
+INFO: 	 2023-10-22 13:42:34 	 crud.py uploadfile1 - line: 259 	 {"IsSuccessful":true,"ResponseMessage":"Approved by Financial Institution","ResponseCode":"00","Reference":"A2301120543"}
+INFO: 	 2023-10-22 13:42:37 	 crud.py uploadfile1 - line: 259 	 {"IsSuccessful":true,"ResponseMessage":"Approved by Financial Institution","ResponseCode":"00","Reference":"A2301120544"}
+INFO: 	 2023-10-22 13:42:39 	 crud.py uploadfile1 - line: 259 	 {"IsSuccessful":true,"ResponseMessage":"Approved by Financial Institution","ResponseCode":"00","Reference":"A2301120545"}
+INFO: 	 2023-10-22 13:42:41 	 crud.py uploadfile1 - line: 259 	 {"IsSuccessful":true,"ResponseMessage":"Approved by Financial Institution","ResponseCode":"00","Reference":"A2301120546"}
+INFO: 	 2023-10-22 13:42:43 	 crud.py uploadfile1 - line: 259 	 {"IsSuccessful":true,"ResponseMessage":"Approved by Financial Institution","ResponseCode":"00","Reference":"A2301120547"}
+INFO: 	 2023-10-22 13:42:45 	 crud.py uploadfile1 - line: 259 	 {"IsSuccessful":true,"ResponseMessage":"Approved by Financial Institution","ResponseCode":"00","Reference":"A2301120548"}
+INFO: 	 2023-10-22 13:42:47 	 crud.py uploadfile1 - line: 259 	 {"IsSuccessful":true,"ResponseMessage":"Approved by Financial Institution","ResponseCode":"00","Reference":"A2301120549"}
+INFO: 	 2023-10-22 13:42:50 	 crud.py uploadfile1 - line: 259 	 {"IsSuccessful":true,"ResponseMessage":"Approved by Financial Institution","ResponseCode":"00","Reference":"A2301120550"}
+INFO: 	 2023-10-22 13:42:53 	 crud.py uploadfile1 - line: 259 	 {"IsSuccessful":true,"ResponseMessage":"Approved by Financial Institution","ResponseCode":"00","Reference":"A2301120551"}
+INFO: 	 2023-10-22 13:42:53 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/transactions/upload 200
+INFO: 	 2023-10-23 14:54:26 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/docs 200
+INFO: 	 2023-11-11 16:23:21 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/docs 200
+INFO: 	 2023-11-11 16:23:22 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/openapi.json 200
+INFO: 	 2023-11-11 16:27:34 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/transactions 401
+INFO: 	 2023-11-11 16:27:46 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/users/token 200
+INFO: 	 2023-11-11 16:27:54 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/transactions 200
+INFO: 	 2023-11-11 16:33:35 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/docs 200
+INFO: 	 2023-11-11 16:33:35 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/openapi.json 200
+INFO: 	 2023-11-11 16:33:46 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/users/token 200
+INFO: 	 2023-11-11 16:36:12 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/docs 200
+INFO: 	 2023-11-11 16:36:12 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/openapi.json 200
+INFO: 	 2023-11-11 16:36:22 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/users/token 200
+INFO: 	 2023-11-11 16:41:26 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/docs 200
+INFO: 	 2023-11-11 16:41:26 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/openapi.json 200
+INFO: 	 2023-11-11 16:41:38 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/users/token 200
+INFO: 	 2023-11-11 16:44:06 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:44:07 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:44:08 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:44:09 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:44:10 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:44:11 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:44:12 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:44:13 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:44:14 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:44:15 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:44:16 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:44:17 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:44:18 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:44:19 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:44:20 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:44:20 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/transactions/upload 200
+INFO: 	 2023-11-11 16:49:21 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:49:22 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:49:23 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:49:24 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:49:25 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:49:26 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:49:27 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:49:28 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:49:29 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:49:30 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:49:31 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:49:32 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:49:33 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:49:34 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:49:35 	 crud.py uploadfile1 - line: 265 	 {"IsSuccessful":false,"ResponseMessage":"AuthToken Not Configured for this service","ResponseCode":"12","Reference":null}
+INFO: 	 2023-11-11 16:49:35 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/transactions/upload 200
+INFO: 	 2023-11-11 16:53:42 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/docs 200
+INFO: 	 2023-11-11 16:53:42 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/openapi.json 200
+INFO: 	 2023-11-11 16:53:47 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/docs 200
+INFO: 	 2023-11-11 16:53:48 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/openapi.json 200
+INFO: 	 2023-11-11 16:53:58 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/users/token 200
+INFO: 	 2023-11-11 16:54:38 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/transactions 200
+INFO: 	 2023-11-11 16:57:58 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/transactions 200
+INFO: 	 2023-11-11 17:02:55 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/docs 200
+INFO: 	 2023-11-11 17:03:16 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/openapi.json 200
+INFO: 	 2023-11-11 20:13:18 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/docs 200
+INFO: 	 2023-11-11 20:13:19 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/openapi.json 200
+INFO: 	 2023-11-12 10:23:41 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/docs 200
+INFO: 	 2023-11-12 10:23:42 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/openapi.json 200
+INFO: 	 2023-11-13 11:35:34 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/openapi.json 200
+INFO: 	 2023-11-13 11:39:00 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/docs 200
+INFO: 	 2023-11-13 11:39:01 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/openapi.json 200
+INFO: 	 2023-11-13 11:40:11 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/docs 200
+INFO: 	 2023-11-13 11:40:11 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/openapi.json 200
+INFO: 	 2023-11-13 11:40:18 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/users/token 200
+INFO: 	 2023-11-13 11:40:46 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/transactions 200
+INFO: 	 2023-11-13 11:43:55 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/transactions 200
+INFO: 	 2023-11-13 11:53:12 	 main.py root - line: 37 	 Lets Begin
+INFO: 	 2023-11-13 11:53:12 	 dependency.py dispatch - line: 33 	 GET https://d04c-197-210-54-98.ngrok-free.app/ 200
+INFO: 	 2023-11-13 11:53:19 	 dependency.py dispatch - line: 33 	 GET https://d04c-197-210-54-98.ngrok-free.app/doc 404
+INFO: 	 2023-11-13 11:53:25 	 dependency.py dispatch - line: 33 	 GET https://d04c-197-210-54-98.ngrok-free.app/docs 200
+INFO: 	 2023-11-13 11:53:28 	 dependency.py dispatch - line: 33 	 GET https://d04c-197-210-54-98.ngrok-free.app/openapi.json 200
+INFO: 	 2023-11-14 12:00:50 	 dependency.py dispatch - line: 33 	 GET https://d04c-197-210-54-98.ngrok-free.app/docs 200
+INFO: 	 2023-11-14 12:00:51 	 dependency.py dispatch - line: 33 	 GET https://d04c-197-210-54-98.ngrok-free.app/openapi.json 200
+INFO: 	 2023-11-14 12:01:04 	 dependency.py dispatch - line: 33 	 POST https://d04c-197-210-54-98.ngrok-free.app/users/token 200
+INFO: 	 2023-11-14 12:01:23 	 dependency.py dispatch - line: 33 	 GET https://d04c-197-210-54-98.ngrok-free.app/users 200
+INFO: 	 2023-11-15 11:26:08 	 dependency.py dispatch - line: 33 	 POST https://d04c-197-210-54-98.ngrok-free.app/transactions 401
+INFO: 	 2023-11-15 11:26:28 	 dependency.py dispatch - line: 33 	 POST https://d04c-197-210-54-98.ngrok-free.app/users/token 200
+INFO: 	 2023-11-15 11:26:36 	 dependency.py dispatch - line: 33 	 POST https://d04c-197-210-54-98.ngrok-free.app/transactions 200
+INFO: 	 2023-11-15 11:26:59 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/users/token 200
+INFO: 	 2023-11-15 11:27:13 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/transactions 200
+INFO: 	 2023-11-15 11:27:24 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/docs 200
+INFO: 	 2023-11-15 11:27:25 	 dependency.py dispatch - line: 33 	 GET http://localhost:8001/openapi.json 200
+INFO: 	 2023-11-15 11:27:46 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/transactions 401
+INFO: 	 2023-11-15 11:27:55 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/users/token 200
+INFO: 	 2023-11-15 11:28:02 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/transactions 200
+INFO: 	 2023-11-15 11:36:35 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/transactions 200
+INFO: 	 2023-11-15 15:04:11 	 dependency.py dispatch - line: 33 	 POST https://d04c-197-210-54-98.ngrok-free.app/users/token 200
+INFO: 	 2023-11-15 15:04:18 	 dependency.py dispatch - line: 33 	 POST https://d04c-197-210-54-98.ngrok-free.app/transactions 200
+INFO: 	 2023-11-15 15:04:27 	 dependency.py dispatch - line: 33 	 POST https://d04c-197-210-54-98.ngrok-free.app/transactions 200
+INFO: 	 2023-11-15 15:05:53 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/users/token 200
+INFO: 	 2023-11-15 15:06:00 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/transactions 200
+INFO: 	 2023-11-16 12:09:29 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/users/token 200
+INFO: 	 2023-11-16 12:09:36 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/transactions 200
+INFO: 	 2023-11-16 12:10:13 	 dependency.py dispatch - line: 33 	 POST https://d04c-197-210-54-98.ngrok-free.app/users/token 200
+INFO: 	 2023-11-16 12:10:20 	 dependency.py dispatch - line: 33 	 POST https://d04c-197-210-54-98.ngrok-free.app/transactions 200
+INFO: 	 2023-11-16 12:31:28 	 dependency.py dispatch - line: 33 	 POST http://localhost:8001/transactions 200
+INFO: 	 2023-11-16 12:39:53 	 dependency.py dispatch - line: 33 	 POST https://d04c-197-210-54-98.ngrok-free.app/transactions 401
+INFO: 	 2023-11-16 12:40:04 	 dependency.py dispatch - line: 33 	 POST https://d04c-197-210-54-98.ngrok-free.app/users/token 200
+INFO: 	 2023-11-16 12:40:10 	 dependency.py dispatch - line: 33 	 POST https://d04c-197-210-54-98.ngrok-free.app/transactions 200

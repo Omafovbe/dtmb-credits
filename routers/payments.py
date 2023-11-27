@@ -3,7 +3,7 @@ from decouple import config
 from dependency import get_db
 from sqlalchemy.ext.asyncio import AsyncSession
 from db import schemas
-from db.crud import get_current_user, credit_customer
+from db.crud import get_current_user, credit_customer, get_credits
 
 
 router = APIRouter(
@@ -13,8 +13,9 @@ router = APIRouter(
 )
 
 @router.get('')
-async def get_payments():
-    return {'message': 'remita payments'}
+async def get_payments(skip: int= None, limit:int = 20, db:AsyncSession = Depends(get_db)):
+    trans = await get_credits(db, skip, limit)
+    return trans
 
 
 @router.post('', summary='Credit Customer from GL', 

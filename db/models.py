@@ -44,4 +44,5 @@ class CustomerCredits(Base):
     narration: Mapped[str]
     amount: Mapped[float]
     staff: Mapped[str]
+    reference: Mapped[str] = mapped_column(default='A2023')
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())

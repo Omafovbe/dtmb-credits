@@ -10,7 +10,7 @@ import requests
 from db import schemas
 
 
-from db.crud import credit_single_agent, current_admin_role, uploadfile1, get_current_user
+from db.crud import credit_single_agent, current_admin_role, uploadfile1, get_current_user, get_transaction
 
 # url2 = "https://staging.mybankone.com/thirdpartyapiservice/apiservice/CoreTransactions/Credit"
 
@@ -22,20 +22,9 @@ router = APIRouter(
 )
 
 @router.get('')
-async def read_transactions():
-    try:
-        r = requests.get(url='https://reqres.in/api/users/')
-    except requests.ConnectionError:
-        raise HTTPException(
-            status_code=422,
-            detail='No Connection established to process your request'
-        )
-    except requests.Timeout:
-        raise HTTPException(
-            status_code=422,
-            detail='Request timed-out'
-        )
-    return r.json()
+async def read_transactions(skip: int= None, limit:int = 20, db:AsyncSession = Depends(get_db)):
+    trans = await get_transaction(db, skip, limit)
+    return trans
     # return {'message': 'All Transactions'}
 
 

@@ -187,8 +187,10 @@ async def current_admin_role(req: Request, current_user: schemas.UserBase = Depe
 
 # Transactions CRUD Operations
 
-async def get_transaction():
-    pass
+async def get_transaction(db: AsyncSession, skip:int = 0, limit:int = 20):
+    results = await db.execute(select(models.Transactions).offset(skip).limit(limit))
+    trans = results.scalars().all()
+    return  trans
 
 async def create_transaction():
     pass
@@ -388,6 +390,11 @@ async def update_agent():
 
 # Payments CRUD Operations
 
+async def get_credits(db:AsyncSession, skip:int, limit:int):
+    results = await db.execute(select(models.CustomerCredits).offset(skip).limit(limit))
+    cust = results.scalars().all()
+    return  cust
+
 async def credit_customer(db: AsyncSession, payment:schemas.creditCustomer, user: schemas.UserBase):
     data =  {}
     headers = {
@@ -399,7 +406,7 @@ async def credit_customer(db: AsyncSession, payment:schemas.creditCustomer, user
     data.update({'GLCode': config('glcode_prod'), 'Token': config('auth_token_prod')})
     
     try:
-        result = requests.post(url=config('credit_uri_prod'), data=data, headers=headers)
+        result = requests.post(url=config('credit_uri_prod'), json=data, headers=headers)
     except requests.Timeout:
         raise HTTPException(
             status_code=status.HTTP_408_REQUEST_TIMEOUT,
@@ -412,16 +419,22 @@ async def credit_customer(db: AsyncSession, payment:schemas.creditCustomer, user
         )
     else:
         # Get the agent account details
-
-        # db_transact = models.Transactions(
-        #     retrieval_ref = transaction.RetrivalReference,
-        #     amount = transaction.amount,
-        #     pos_id = i['pos_id'],
-        #     reference = resp['Reference'],
-        #     status = i['status']
-        # )
-        # db.add(db_transact)
-        # await db.commit()
-        # await db.refresh(db_transact)
+        # print(result.text)
+        result = result.json()
+        
+        if (result['IsSuccessful']):
+            db_payments = models.CustomerCredits(
+            retrieval_ref = payment.RetrievalReference,
+            amount = payment.Amount,
+            narration = payment.Narration,
+            account_number = payment.AccountNumber,
+            staff = user.fullname,
+            
+            reference = result['Reference'],
+            )
+            db.add(db_payments)
+            await db.commit()
+            await db.refresh(db_payments)
+        
         return result
     # return data

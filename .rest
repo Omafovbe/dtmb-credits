@@ -1,0 +1,11 @@
+POST https://api.mybankone.com/thirdpartyapiservice/apiservice/CoreTransactions/Credit
+Content-Type: application/json
+
+{
+  "RetrievalReference": "7637373736",
+  "AccountNumber": " 1100089637",
+  "Amount": "1000",
+  "Narration": "testing",
+  "Token": "fc0c10d0-95c3-4595-a2e3-91d7a642ad3e",
+  "GLCode": "1633"
+}

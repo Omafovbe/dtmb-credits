@@ -36,4 +36,12 @@ class Transactions(Base):
     pos_agent: Mapped["POS_Agents"] = relationship(back_populates="transactions")
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
-
+class CustomerCredits(Base):
+    __tablename__ = 'cus_credits'
+    id: Mapped[int] = mapped_column(primary_key=True)
+    retrieval_ref: Mapped[str] = mapped_column(nullable=False)
+    account_number: Mapped[str]
+    narration: Mapped[str]
+    amount: Mapped[float]
+    staff: Mapped[str]
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())

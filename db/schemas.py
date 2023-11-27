@@ -1,10 +1,11 @@
 import inspect
-from typing import Annotated
+from typing import Annotated, Literal
 from fastapi import Form
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from enum import Enum
 from datetime import datetime, date
 from random import randint
+from decouple import config
 
 fmt = f'{date.today()}{randint(1001,9999)}'
 retrievalRef = (fmt).replace("-", "")
@@ -12,12 +13,20 @@ retrievalRef = (fmt).replace("-", "")
 class AdminRole(str, Enum):
     staff = 1
     admin = 2
+    acct = 3
+    pos = 4
 
 class StatusEnum(str, Enum):
     failed = 'Failed'
     pending = 'Pending'
     completed = 'Completed'
     notAvailable = 'Not Available'
+
+class BankCode(str, Enum):
+    zenith = '1011'
+    uba = '1012'
+    gtbank = '1013'
+    fidelity = '1014'
 
 
 def as_form(cls):
@@ -47,7 +56,7 @@ class UserBase(BaseModel):
                     "username": "some_username",
                     "fullname": "Firstname Lastname",
                     "password": "unpredictablePassword",
-                    "role": "1 or 2 where 1 is staff and 2 is admin"
+                    "role": "use either of 1,2,3 or 4 where 1-staff, 2-admin, 3-accounts, 4-pos"
                 }
             ]
         }
@@ -96,12 +105,21 @@ class transactionQuery(BaseModel):
 class transactionBase(BaseModel):
     RetrievalReference: str = retrievalRef
     AccountNumber: str
-    NibssCode: str | None = None
-    Amount: str
+    NibssCode: str = config('nibsscode_prod')
+    Amount: str 
     Narration: str
     Token: str | None = None
     GLCode: str | None = None
+    # GLCode: Literal['Zenith', 'UBA', 'GTBank']
 
+
+@as_form
+class creditCustomer(BaseModel):
+    RetrievalReference: str = retrievalRef
+    AccountNumber: str
+    NibssCode: str = config('nibsscode_prod')
+    Amount: str
+    Narration: str
 
 class Token(BaseModel):
     access_token: str

@@ -22,7 +22,8 @@ async def read_users(skip: int = None, limit: int = None, db: AsyncSession = Dep
 @router.post('', 
              status_code=status.HTTP_201_CREATED, response_description='User Creation Successful',
              response_model=schemas.UserBase,
-             description='Create or add a user to the database'
+             description='Create or add a user to the database',
+             dependencies=[Depends(crud.current_admin_role)]
              )
 async def create_user(user: schemas.UserCreate, db: AsyncSession = Depends(get_db)):
     user = await crud.create_user(db=db, user=user)
@@ -67,3 +68,12 @@ async def login_access_token(db: AsyncSession = Depends(get_db), form_data: OAut
     )
 
     return {'access_token': access_token, 'token_type': 'bearer'}
+
+@router.delete('/remove', dependencies=[Depends(crud.current_admin_role)])
+async def delete_user(
+    username: Annotated[str, Form(...)],
+    cur_user: schemas.UserBase = Depends(crud.get_current_user),
+    db: AsyncSession = Depends(get_db)
+):
+    result = await crud.remove_user(db, username, cur_user)
+    return result

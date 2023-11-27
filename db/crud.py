@@ -3,11 +3,11 @@ import csv
 from datetime import date, timedelta, datetime
 from random import randint
 from jose import JWTError, jwt
-from sqlalchemy import insert, select, update
+from sqlalchemy import insert, select, update, delete
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.exc import NoResultFound
 from auth.security import get_hashed_password, verify_password
-from fastapi import Depends, UploadFile, HTTPException, status
+from fastapi import Depends, UploadFile, HTTPException, status, Request
 
 from decouple import config
 
@@ -88,6 +88,29 @@ async def get_single_user(db: AsyncSession, username: str):
         )
     else:  
         return schemas.UserInDb(**user.__dict__)
+    
+async def remove_user(db: AsyncSession, username: str, user: schemas.UserBase):
+    
+    if (username == user.username):
+        raise HTTPException(
+            status_code = status.HTTP_403_FORBIDDEN,
+            detail='Cannot delete logged in user'
+        )
+    
+    stmt = delete(models.User).where(models.User.username == username)
+    
+    try:
+        await db.execute(stmt)
+        await db.commit()
+    except:
+        logger.error(f'Error deleting {username}')
+        logger.exception('Database error')
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail='Database error'
+        )
+    finally: return {'message': f'{username} info was deleted successfully'}
+
 
 
 # Access Token definitions
@@ -136,14 +159,30 @@ async def get_current_user(token: str = Depends(oauth2_scheme), db: AsyncSession
         raise credentials_exception
     return user
 
-async def current_admin_role(current_user: schemas.UserBase = Depends(get_current_user)):
-    print(current_user)
-    if current_user.role != schemas.AdminRole.admin:
-        raise HTTPException(
+
+async def current_admin_role(req: Request, current_user: schemas.UserBase = Depends(get_current_user)):
+    print(f'{current_user.fullname} - {current_user.role}')
+    cur_path = req.url.path
+    print(cur_path)
+    get_route = cur_path.split('/')
+    print(get_route)
+    
+    if current_user.role == schemas.AdminRole.admin:
+        return current_user
+
+    if (get_route[1] == 'transactions' and ((current_user.role == schemas.AdminRole.admin) or (current_user.role == schemas.AdminRole.pos))):
+        return current_user
+    
+    if (get_route[1] == 'agents' and ((current_user.role == schemas.AdminRole.admin) or (current_user.role == schemas.AdminRole.pos))):
+        return current_user
+    
+    if (get_route[1] == 'payments' and ((current_user.role == schemas.AdminRole.admin) or (current_user.role == schemas.AdminRole.acct))):
+        return current_user
+    
+    raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail='You are not authorized for this operation'
         )
-    return current_user
 
 
 # Transactions CRUD Operations
@@ -249,8 +288,8 @@ async def uploadfile1(file: UploadFile, db= AsyncSession):
                     # 'NibssCode': config('nibsscode'),
                     'Amount': i['amount'],
                     'Narration': 'POS Transaction refunds',
-                    'Token': config('auth_token_stage'),
-                    'GLCode': config('glcode')
+                    'Token': config('auth_token_prod'),
+                    'GLCode': config('glcode_prod')
                 }
                 print(data)
                 headers = {
@@ -345,3 +384,44 @@ async def del_agent():
 
 async def update_agent():
     pass
+
+
+# Payments CRUD Operations
+
+async def credit_customer(db: AsyncSession, payment:schemas.creditCustomer, user: schemas.UserBase):
+    data =  {}
+    headers = {
+        "accept": "application/json",
+        "content-type": "application/json"
+    }
+
+    data.update(payment)
+    data.update({'GLCode': config('glcode_prod'), 'Token': config('auth_token_prod')})
+    
+    try:
+        result = requests.post(url=config('credit_uri_prod'), data=data, headers=headers)
+    except requests.Timeout:
+        raise HTTPException(
+            status_code=status.HTTP_408_REQUEST_TIMEOUT,
+            detail='Request Timed Out.'
+        )
+    except requests.ConnectionError:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail='No Connection established to process your request'
+        )
+    else:
+        # Get the agent account details
+
+        # db_transact = models.Transactions(
+        #     retrieval_ref = transaction.RetrivalReference,
+        #     amount = transaction.amount,
+        #     pos_id = i['pos_id'],
+        #     reference = resp['Reference'],
+        #     status = i['status']
+        # )
+        # db.add(db_transact)
+        # await db.commit()
+        # await db.refresh(db_transact)
+        return result
+    # return data

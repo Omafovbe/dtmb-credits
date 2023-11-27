@@ -11,7 +11,7 @@ router = APIRouter(
     tags=['POS-Agents']
 )
 
-@router.get('', response_model=list[schemas.POS_AgentBase])
+@router.get('', response_model=list[schemas.POS_AgentBase], summary='Display all Agents')
 async def show_agents(db: AsyncSession = Depends(get_db), skip: int = None, limit: int = None, current_user: schemas.UserBase = Depends(get_current_user)):
     agents = await get_agents(skip=skip, limit=limit, db=db)
     return agents
@@ -24,7 +24,7 @@ async def get_one_agent(terminal_id: str, db: AsyncSession = Depends(get_db)):
     return resp
 
 
-@router.post('', status_code=status.HTTP_201_CREATED, response_model=schemas.POS_AgentBase)
+@router.post('', summary='Create Agent Profile', status_code=status.HTTP_201_CREATED, response_model=schemas.POS_AgentBase)
 async def add_agent(db: AsyncSession = Depends(get_db)):
     return {'message': 'Create an agent profile'}
 

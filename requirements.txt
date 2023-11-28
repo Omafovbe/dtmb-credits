@@ -5,6 +5,7 @@ sqlalchemy
 python-multipart
 pydantic[email]
 aiosqlite
+asyncpg
 pandas
 requests
 python-decouple==3.8
